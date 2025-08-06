@@ -1,59 +1,64 @@
+import Navbar from "./Navbar";
+
 export default function Hero() {
+  const StatsData = [
+    {
+      title: "+2,700",
+      description: "Lives Transformed",
+      icon: "/assets/transforms.svg",
+    },
+    {
+      title: "94%",
+      description: "Success & Satisfaction",
+      icon: "/assets/success.svg",
+    },
+    {
+      title: "9.2 KG",
+      description: "Average weight loss in a month",
+      icon: "/assets/Weigher.svg",
+    },
+  ];
+
   return (
     <section className="flex flex-col w-full h-full lg:min-h-screen text-white">
-      
       {/* Hero Banner */}
       <div
-        className="h-[70svh] lg:min-h-screen bg-cover bg-center bg-no-repeat pt-24 relative"
+        className="w-full aspect-[20/11] bg-cover bg-center bg-no-repeat relative"
         style={{ backgroundImage: "url('assets/MainBanner.webp')" }}
       >
-        <div className="text-center text-white sm:hidden h-full flex flex-col gap-3 lg:gap-0 items-center w-full px-6 relative inset-y-10 md:inset-y-0">
-          <h1 className="font-bold text-2xl xl:text-6xl xl:leading-[70px]">
-            LIVE IN YOUR DREAM BODY
-          </h1>
-          <p className="lg:max-w-[50%] text-xs lg:text-xl opacity-70">
-            Meet the new version of yourself at the ultimate wellness hub, where
-            science-backed, non-surgical solutions help you fully control your
-            weight, health, and confidence.
-          </p>
-        </div>
+        <Navbar />
       </div>
 
       {/* Stats Section */}
-      <div className="relative h-[30svh] md:h-full w-full bg-dietBlack py-6 lg:py-15 px-6 md:px-15 lg:px-20 xl:px-30 grid grid-cols-6 lg:grid-cols-12 gap-4 lg:gap-8">
-        <span className="absolute top-0 left-0 right-0 h-[1px] lg:h-1 bg-dietOrange rounded-full"></span>
+      <div className="relative w-full bg-dietBlack py-8 lg:py-16 px-6 lg:px-20">
+        <span className="absolute top-0 left-0 right-0 h-[2px] bg-dietOrange"></span>
 
-        {/* Card 1 */}
-        <div className="w-full flex flex-col justify-center gap-2 py-3 lg:py-9 px-2 lg:px-6 bg-white col-span-2 lg:col-span-4 items-center rounded-xl text-dietBlack">
-          <img alt="Lives Transformed icon" className="w-12 h-12" src="/assets/transforms.svg" />
-          <div className="flex flex-col items-center gap-1 lg:gap-2">
-            <p className="text-lg lg:text-4xl font-bold">+2,700</p>
-            <p className="text-xs lg:text-xl font-medium opacity-70 text-center">
-              Lives Transformed
-            </p>
-          </div>
-        </div>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 lg:gap-8 max-w-6xl mx-auto">
+          {StatsData.map((stat, index) => (
+            <div
+              key={index}
+              className="group w-full md:w-[30%] lg:w-[32%] h-[184px] bg-white rounded-xl flex items-center gap-3 px-6 py-8 transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 hover:-translate-y-2 cursor-pointer"
+            >
+              {/* Icon Section */}
+              <div className="flex-shrink-0 w-20 h-20 flex items-center justify-center bg-gray-50 rounded-full group-hover:bg-dietOrange/10 transition-colors duration-300">
+                <img
+                  src={stat.icon}
+                  alt={stat.description}
+                  className="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
 
-        {/* Card 2 */}
-        <div className="w-full flex flex-col justify-center gap-2 py-3 lg:py-9 px-2 lg:px-6 bg-white col-span-2 lg:col-span-4 items-center rounded-xl text-dietBlack">
-          <img alt="Success & Satisfaction icon" className="w-12 h-12" src="/assets/success.svg" />
-          <div className="flex flex-col items-center gap-1 lg:gap-2">
-            <p className="text-lg lg:text-4xl font-bold">94%</p>
-            <p className="text-xs lg:text-xl font-medium opacity-70 text-center">
-              Success & Satisfaction
-            </p>
-          </div>
-        </div>
-
-        {/* Card 3 */}
-        <div className="w-full flex flex-col justify-center gap-2 py-3 lg:py-9 px-2 lg:px-6 bg-white col-span-2 lg:col-span-4 items-center rounded-xl text-dietBlack">
-          <img alt="Average weight loss in a month icon" className="w-12 h-12" src="/assets/Weigher.svg" />
-          <div className="flex flex-col items-center gap-1 lg:gap-2">
-            <p className="text-lg lg:text-4xl font-bold">9.2 KG</p>
-            <p className="text-xs lg:text-xl font-medium opacity-70 text-center">
-              Average weight loss in a month
-            </p>
-          </div>
+              {/* Content Section */}
+              <div className="flex-1 flex flex-col justify-center gap-2">
+                <p className="text-3xl lg:text-4xl font-bold text-black group-hover:text-dietOrange transition-colors duration-300">
+                  {stat.title}
+                </p>
+                <p className="text-base lg:text-lg font-medium text-gray-600 leading-tight">
+                  {stat.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

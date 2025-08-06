@@ -1,22 +1,127 @@
+import { useState } from "react";
+
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-       <nav className="w-full z-20 px-6 lg:px-20 py-3 absolute top-0 grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-4 items-center">
-      <div className="col-span-2">
+    <nav className="w-full h-[100px] text-white shadow-sm flex items-center justify-between px-6 sm:px-10 lg:px-20">
+      {/* Logo */}
+      <div className="flex items-center">
         <a href="/">
-          <img alt="Diet Hub logo" className="w-36" src="public/assets/Logo.svg" />
+          <img
+            alt="Diet Hub logo"
+            className="w-28 sm:w-32 lg:w-36"
+            src="public/assets/Logo.svg"
+          />
         </a>
       </div>
-      <ul className="hidden md:flex md:col-start-4 xl:col-start-7 md:col-span-4 justify-between text-white font-medium">
-        <li><a href="/about" className="hover:text-dietOrange">About Us</a></li>
-        <li><a href="/#doctors" className="hover:text-dietOrange">Our Doctors</a></li>
-        <li><a href="/services" className="hover:text-dietOrange">Services</a></li>
-        <li><a href="/blogs" className="hover:text-dietOrange">Blogs</a></li>
-      </ul>
-      
-     <a class="flex items-center justify-center bg-dietOrange hover:bg-opacity-60 h-10 rounded-lg py-2.5 text-center text-white col-span-2 lg:col-span-3 xl:col-span-2 duration-300 ease-in-out text-xs lg:text-sm xl:text-base font-medium hidden md:flex text-sm lg:text-base font-medium duration-300 ease-in-out text-dietBlack md:col-start-7 lg:col-start-7 lg:col-end-9 xl:col-start-11  whitespace-nowrap" href="/landing" data-discover="true">Life-Changing Tales</a>
+
+      {/* Desktop Menu */}
+      <div className="hidden max-[900px]:hidden min-[901px]:flex items-center gap-8">
+        <ul className="flex text-white items-center gap-10">
+          <li>
+            <a
+              href="/about"
+              className="hover:text-dietOrange transition-colors duration-300 ease-in-out font-medium"
+            >
+              About Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="/#doctors"
+              className="hover:text-dietOrange transition-colors duration-300 ease-in-out font-medium"
+            >
+              Our Doctors
+            </a>
+          </li>
+          <li>
+            <a
+              href="/services"
+              className="hover:text-dietOrange transition-colors duration-300 ease-in-out font-medium"
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="/blogs"
+              className="hover:text-dietOrange transition-colors duration-300 ease-in-out font-medium"
+            >
+              Blogs
+            </a>
+          </li>
+        </ul>
+
+        <div className="w-[1px] h-8 bg-gray-300"></div>
+
+        <a
+          className="px-6 py-2.5 bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 text-white rounded-lg font-medium transition-all duration-300 ease-in-out hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"
+          href="/landing"
+        >
+          Life-Changing Tales
+        </a>
+      </div>
+
+      {/* Mobile Toggle Button */}
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="max-[900px]:flex min-[901px]:hidden flex-col justify-center items-center w-8 h-8 space-y-1.5"
+      >
+        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+      </button>
+
+      {/* Mobile Menu */}
+      <div className={`max-[900px]:${isMenuOpen ? 'flex' : 'hidden'} min-[901px]:hidden absolute top-[100px] left-0 w-full bg-dietBlack  flex-col items-center py-6 space-y-4 transition-all duration-300 z-50`}>
+        <ul className="flex flex-col text-white items-center gap-6">
+          <li>
+            <a
+              href="/about"
+              className="hover:text-dietOrange transition-colors duration-300 ease-in-out font-medium text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About Us
+            </a>
+          </li>
+          <li>
+            <a
+              href="/#doctors"
+              className="hover:text-dietOrange transition-colors duration-300 ease-in-out font-medium text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Our Doctors
+            </a>
+          </li>
+          <li>
+            <a
+              href="/services"
+              className="hover:text-dietOrange transition-colors duration-300 ease-in-out font-medium text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="/blogs"
+              className="hover:text-dietOrange transition-colors duration-300 ease-in-out font-medium text-lg"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blogs
+            </a>
+          </li>
+        </ul>
+
+        <a
+          className="px-8 py-3 bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 text-white rounded-lg font-medium transition-all duration-300 ease-in-out hover:shadow-lg transform hover:-translate-y-0.5 text-lg"
+          href="/landing"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Life-Changing Tales
+        </a>
+      </div>
     </nav>
   );
 }
-
-
-

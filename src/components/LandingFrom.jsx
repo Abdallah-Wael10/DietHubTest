@@ -1,46 +1,62 @@
 import { useState } from "react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import Navbar from "./Navbar";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
 
 export default function LandingForm() {
   const [phone, setPhone] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    weight: "",
+    height: "",
+  });
+
+  const ImagesBeforeAndAfter = [
+    "/assets/firstone.webp",
+    "/assets/secone.webp",
+    "/assets/thirdone.webp",
+  ];
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
-    <section className="bg-dietBlack py-12 pt-20 lg:py-30 lg:pt-56 w-full text-white">
-      <div className="grid grid-cols-4 lg:grid-cols-12 gap-4 gap-y-6 lg:gap-8 lg:gap-y-10 px-6 md:px-15 lg:px-20 xl:px-30">
+    <section className="bg-dietBlack text-white w-full min-h-screen">
+      <Navbar />
+      <div className="w-full h-max min-h-screen flex justify-center items-center flex-wrap">
+        <div className="w-1/2 h-max pb-5 flex justify-center items-center max-[900px]:w-full">
+          <form className="w-[100%] h-max pb-5 pl-[120px] pb-5 pt-5 rounded-lg bg-transparent flex flex-col justify-center max-[900px]:pl-0">
+            <h1 className="w-full text-[36px] font-bold text-white text-center mb-3 leading-tight tracking-tight">
+              TELL YOUR NEW STORY NOW!
+            </h1>
+            <h2 className="w-full text-[20px] font-medium text-white/80 text-center mb-10 leading-relaxed">
+              Take a seat and start your transformation journey with us
+            </h2>
 
-        {/* Title */}
-        <div className="col-span-full text-center row-start-1 lg:col-start-1 lg:col-span-6 lg:self-end">
-          <h2 className="font-bold text-lg lg:text-4xl lg:pb-4 uppercase">
-            Tell Your New Story Now!
-          </h2>
-          <p className="text-sm lg:text-xl opacity-70">
-            Take a seat and start your transformation journey with us
-          </p>
-        </div>
-
-        {/* Form */}
-        <div className="col-span-full lg:col-span-6 text-center self-center lg:col-start-1 lg:row-start-2 lg:self-start">
-          <form className="flex flex-col items-center lg:gap-5" autoComplete="off">
-            <div className="flex flex-col lg:flex-row gap-5 lg:gap-8 justify-between w-full">
-              {/* Name */}
-              <div className="relative w-full">
+            {/* Name & Email Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-5 max-[900px]:flex max-[900px]:justify-center max-[900px]:items-center">
+              <div className="w-[90%] relative group max-[900px]:w-[70%]">
                 <input
                   type="text"
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   placeholder="Name"
-                  className="rounded-lg w-full border-2 px-10 h-11 placeholder:text-sm duration-300 focus:border-dietOrange outline-none text-black"
+                  className="w-full h-[45px] pl-12 pr-4 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder:text-gray-400 text-base font-medium focus:border-[rgb(255_80_3)] focus:outline-none focus:ring-2 focus:ring-[rgb(255_80_3)]/20 transition-all duration-300 hover:border-gray-400 hover:shadow-md group-hover:shadow-lg"
                 />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth="1.5"
+                  strokeWidth="2"
                   stroke="currentColor"
-                  className="absolute top-1/2 -translate-y-1/2 size-5 ml-3 text-[#808080]"
+                  className="absolute top-1/2 left-4 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[rgb(255_80_3)] transition-colors duration-300 pointer-events-none"
                 >
                   <path
                     strokeLinecap="round"
@@ -50,26 +66,14 @@ export default function LandingForm() {
                 </svg>
               </div>
 
-              {/* Phone */}
-              <div className="w-full">
-                <PhoneInput
-                  defaultCountry="eg"
-                  value={phone}
-                  onChange={setPhone}
-                  inputClassName="w-full h-11 rounded-lg border-2 px-4 placeholder:text-sm focus:border-dietOrange outline-none text-black"
-                  placeholder="Phone Number"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col lg:flex-row gap-5 lg:gap-8 justify-between w-full">
-              {/* Email */}
-              <div className="relative w-full">
+              <div className="w-[90%] relative group max-[900px]:w-[70%]">
                 <input
                   type="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="E-mail"
-                  className="rounded-lg w-full border-2 px-10 h-11 placeholder:text-sm duration-300 focus:border-dietOrange outline-none text-black"
+                  className="w-full h-[45px] pl-12 pr-4 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder:text-gray-400 text-base font-medium focus:border-[rgb(255_80_3)] focus:outline-none focus:ring-2 focus:ring-[rgb(255_80_3)]/20 transition-all duration-300 hover:border-gray-400 hover:shadow-md group-hover:shadow-lg"
                 />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +81,7 @@ export default function LandingForm() {
                   viewBox="0 0 24 24"
                   strokeWidth="2"
                   stroke="currentColor"
-                  className="absolute top-1/2 -translate-y-1/2 size-5 ml-3 stroke-[#6A7181]"
+                  className="absolute top-1/2 left-4 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[rgb(255_80_3)] transition-colors duration-300 pointer-events-none"
                 >
                   <path
                     strokeLinecap="round"
@@ -86,58 +90,100 @@ export default function LandingForm() {
                   />
                 </svg>
               </div>
+            </div>
 
-              {/* Weight */}
-              <div className="relative w-full">
-                <input
-                  type="text"
-                  name="weight"
-                  placeholder="Weight (Kg)"
-                  className="rounded-lg w-full border-2 px-10 h-11 placeholder:text-sm duration-300 focus:border-dietOrange outline-none text-black"
+            {/* Phone & Weight/Height Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6 max-[900px]:flex max-[900px]:justify-center max-[900px]:items-center max-[900px]:flex-col">
+              {/* Phone Input */}
+              <div className="w-[90%] relative group max-[900px]:w-[70%]">
+                <PhoneInput
+                  defaultCountry="eg"
+                  value={phone}
+                  onChange={setPhone}
+                  placeholder="Phone Number"
+                  inputClassName="!rounded-r-lg !border !border-l-0 !border-gray-300 !h-[45px] !w-full px-3 placeholder:text-gray-400 focus:!border-[rgb(255_80_3)] focus:!ring-2 focus:!ring-[rgb(255_80_3)]/20 hover:!border-gray-400 !text-base !font-medium !bg-white !text-gray-800 !transition-all !duration-300"
+                  countrySelectorStyleProps={{
+                    buttonClassName:
+                      "!h-[45px] !border !border-gray-300 !rounded-l-lg !rounded-r-none focus:!border-[rgb(255_80_3)] hover:!border-gray-400 !bg-white !transition-all !duration-300",
+                    dropdownArrowClassName: "hidden",
+                  }}
                 />
-                <img
-                  src="/images/weight.svg"
-                  alt="Weight"
-                  className="absolute top-1/2 -translate-y-1/2 size-5 ml-3"
-                />
+              </div>
+
+              {/* Weight & Height */}
+              <div className="grid grid-cols-2 gap-2 max-[900px]:w-[70%]">
+                <div className=" relative group">
+                  <input
+                    type="text"
+                    name="weight"
+                    value={formData.weight}
+                    onChange={handleInputChange}
+                    placeholder="Weight (Kg)"
+                    className="w-full h-[45px] pl-12 pr-4 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder:text-gray-400 text-base font-medium focus:border-[rgb(255_80_3)] focus:outline-none focus:ring-2 focus:ring-[rgb(255_80_3)]/20 transition-all duration-300 hover:border-gray-400 hover:shadow-md group-hover:shadow-lg"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="absolute top-1/2 left-4 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[rgb(255_80_3)] transition-colors duration-300 pointer-events-none"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75"
+                    />
+                  </svg>
+                </div>
+
+                <div className=" relative group">
+                  <input
+                    type="text"
+                    name="height"
+                    value={formData.height}
+                    onChange={handleInputChange}
+                    placeholder="Height (cm)"
+                    className="w-full h-[45px] pl-12 pr-4 rounded-lg border border-gray-300 bg-white text-gray-800 placeholder:text-gray-400 text-base font-medium focus:border-[rgb(255_80_3)] focus:outline-none focus:ring-2 focus:ring-[rgb(255_80_3)]/20 transition-all duration-300 hover:border-gray-400 hover:shadow-md group-hover:shadow-lg"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="absolute top-1/2 left-4 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[rgb(255_80_3)] transition-colors duration-300 pointer-events-none"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="w-full relative">
-              {/* Height */}
-              <input
-                type="text"
-                name="height"
-                placeholder="Height (cm)"
-                className="rounded-lg w-full border-2 px-10 h-11 placeholder:text-sm duration-300 focus:border-dietOrange outline-none text-black"
-              />
-              <img
-                src="/images/height.svg"
-                alt="Height"
-                className="absolute top-1/2 -translate-y-1/2 size-5 ml-3"
-              />
-            </div>
-
             {/* Buttons */}
-            <div className="flex pt-5 lg:pt-0 gap-4 lg:gap-8 justify-center items-center w-full">
+            <div className="w-full h-max pb-5 flex justify-center items-center gap-6 mt-6">
               <button
                 type="submit"
-                className="w-full lg:w-1/3 flex items-center justify-center bg-dietOrange hover:bg-opacity-60 h-11 rounded-lg text-white text-xs lg:text-base font-medium duration-300"
+                className="w-[30%] h-[40px] bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 text-white font-bold rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] hover:shadow-[rgb(255_80_3)]/30 max-[900px]:w-[40%]"
               >
                 Submit
               </button>
               <a
                 href="/"
-                className="w-full lg:w-1/3 flex items-center justify-center border-2 border-dietOrange rounded-lg text-white text-xs lg:text-base font-medium duration-300 group"
+                className="w-[30%] h-[40px] flex items-center justify-center gap-2 border-2 border-[rgb(255_80_3)] text-[rgb(255_80_3)] hover:bg-[rgb(255_80_3)] hover:text-white rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] group max-[900px]:w-[40%]"
               >
-                <p className="text-dietOrange group-hover:-translate-x-2 duration-300">
+                <span className="group-hover:-translate-x-1 transition-transform duration-300">
                   Discover More
-                </p>
+                </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="text-dietOrange size-7 group-hover:translate-x-2 duration-300"
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                 >
                   <path
                     fillRule="evenodd"
@@ -150,41 +196,52 @@ export default function LandingForm() {
           </form>
         </div>
 
-        {/* Right Image */}
-        {/* Right side: Swiper (images) */}
-<div className="col-span-full lg:col-span-6 lg:col-start-7 row-start-2 lg:row-start-1 lg:row-span-2">
-  <Swiper
-    modules={[Autoplay]}
-    spaceBetween={10}
-    slidesPerView={1}
-    loop={true}
-    autoplay={{ delay: 5000, disableOnInteraction: false }}
-    className="rounded-lg"
-  >
-    <SwiperSlide>
-      <img
-        src="/images/landing/1.webp"
-        alt="Slide 1"
-        className="w-full h-full object-cover rounded-lg"
-      />
-    </SwiperSlide>
-    <SwiperSlide>
-      <img
-        src="/assets/SarahCard.webp"
-        alt="Slide 2"
-        className="w-full h-full object-cover rounded-lg"
-      />
-    </SwiperSlide>
-    <SwiperSlide>
-      <img
-        src="/assets/SarahCard.webp"
-        alt="Slide 3"
-        className="w-full h-full object-cover rounded-lg"
-      />
-    </SwiperSlide>
-  </Swiper>
-</div>
+        <div className="w-1/2 h-max pb-5 flex justify-center items-center max-[900px]:w-full">
+          <div className="w-[610px] h-[500px] bg-white rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden border border-gray-100">
+            <Swiper
+              modules={[Autoplay, EffectFade]}
+              spaceBetween={0}
+              slidesPerView={1}
+              loop={true}
+              effect="fade"
+              fadeEffect={{ crossFade: true }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              className="w-full h-full rounded-2xl"
+            >
+              {ImagesBeforeAndAfter.map((image, idx) => (
+                <SwiperSlide key={idx}>
+                  <img
+                    src={image}
+                    alt={`Transformation ${idx + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="eager"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
+            {/* Floating Labels */}
+            <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-lg text-[rgb(255_80_3)] font-bold text-sm border border-[rgb(255_80_3)]/20">
+              Before
+            </div>
+            <div className="absolute top-6 right-6 bg-[rgb(255_80_3)]/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-lg text-white font-bold text-sm">
+              After
+            </div>
+
+            {/* Progress Indicator */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+              {ImagesBeforeAndAfter.map((_, index) => (
+                <div
+                  key={index}
+                  className="w-2 h-2 bg-white/70 rounded-full hover:bg-[rgb(255_80_3)] transition-colors duration-300 cursor-pointer"
+                ></div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

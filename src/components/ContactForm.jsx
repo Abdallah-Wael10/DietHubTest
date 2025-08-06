@@ -35,58 +35,67 @@ export default function ContactForm() {
   return (
     <section
       id="doctors"
-      className="w-full md:pb-15 lg:pb-20 xl:pb-30 md:px-15 lg:px-20 xl:px-30 grid grid-cols-4 lg:grid-cols-12 gap-4 gap-y-6 lg:gap-8 lg:gap-y-12 justify-center items-center"
+      className="w-full md:pb-15 lg:pb-20 xl:pb-30 md:px-15 lg:px-20 xl:px-30 grid grid-cols-4 lg:grid-cols-12 gap-4 gap-y-6 lg:gap-8 lg:gap-y-12 justify-center items-center bg-gray-50/50"
     >
       {/* Heading */}
       <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-4 lg:gap-y-6 gap-x-4 lg:gap-x-8 col-span-full px-6 md:px-0">
         <div className="col-span-full grid grid-cols-4 lg:grid-cols-12 gap-y-4 lg:gap-y-6 gap-x-4 lg:gap-x-8 tracking-wide">
           <div className="col-span-full lg:col-start-3 lg:col-span-8">
-            <h4 className="font-bold text-xl lg:text-4xl text-center w-full uppercase text-dietBlack">
+            <h4 className="font-[700] text-[36px] uppercase lg:text-4xl text-center w-full text-dietBlack mb-4">
               Meet Our Doctors
             </h4>
           </div>
-          <p className="text-xs lg:text-base lg:col-start-3 col-span-full lg:col-span-8 text-center lg:px-1 opacity-70 text-dietBlack">
+          <p className="text-[16px] lg:text-lg lg:col-start-3 col-span-full lg:col-span-8 text-center lg:px-1 text-gray-600 leading-relaxed">
             The visionaries behind every successful transformation
           </p>
         </div>
 
         {/* Orange Line */}
-        <span className="rounded-full block lg:!col-start-5 col-span-4 h-0.5 lg:h-1 bg-dietOrange"></span>
+        <div className="flex justify-center col-span-full">
+          <span className="rounded-full block h-1 bg-dietOrange w-[29%] "></span>
+        </div>
       </div>
 
       {/* Doctors Grid */}
-      <div className="col-span-full px-6 lg:px-0 grid grid-cols-4 lg:grid-cols-12 gap-4 gap-y-12 lg:gap-8">
+      <div className="col-span-full px-6 lg:px-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
         {doctors.map((doc, idx) => (
           <div
             key={idx}
-            className="flex flex-col gap-4 items-center text-center col-span-2 lg:col-span-4"
+            className="group flex flex-col gap-6 items-center text-center bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2"
           >
-            <img
-              alt={`Doctor ${doc.name}`}
-              className="rounded-full size-36"
-              src={doc.img}
-              width="112"
-              height="112"
-            />
-            <div className="flex flex-col justify-between h-full">
-              <div className="flex flex-col gap-1 lg:px-8">
-                <h6 className="font-bold text-base lg:text-xl">{doc.name}</h6>
-                <p className="text-xs lg:text-base lg:px-1.5 opacity-70 text-center">
+            <div className="relative">
+              <img
+                alt={`Doctor ${doc.name}`}
+                className="rounded-full w-36 h-36 object-cover ring-4 ring-gray-100 group-hover:ring-dietOrange/20 transition-all duration-300"
+                src={doc.img}
+                width="144"
+                height="144"
+              />
+              <div className="absolute inset-0 rounded-full bg-dietOrange/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+
+            <div className="flex flex-col gap-3 flex-grow">
+              <div className="space-y-2">
+                <h6 className="font-bold text-lg lg:text-xl text-dietBlack group-hover:text-dietOrange transition-colors duration-300">
+                  {doc.name}
+                </h6>
+                <p className="text-sm lg:text-base text-gray-600 leading-relaxed">
                   {doc.role}
                 </p>
               </div>
+
               <a
                 href={doc.link}
-                className="flex items-center justify-center group hover:bg-opacity-60 h-8 lg:h-10 rounded-lg py-2.5 text-center text-white text-sm lg:text-base font-medium col-span-2 duration-300 ease-in-out"
+                className="group/link mt-4 flex items-center justify-center gap-2 text-dietOrange hover:text-dietOrange/80 font-medium transition-all duration-300 ease-in-out py-2"
               >
-                <p className="text-dietOrange group-hover:lg:-translate-x-2 duration-300 ease-in-out pl-2 lg:pl-0">
+                <span className="group-hover/link:-translate-x-1 transition-transform duration-300">
                   Show Profile
-                </p>
+                </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="text-dietOrange size-7 group-hover:lg:translate-x-2 duration-300 ease-in-out pr-1 lg:pr-0"
+                  className="w-5 h-5 group-hover/link:translate-x-1 transition-transform duration-300"
                 >
                   <path
                     fillRule="evenodd"
@@ -101,19 +110,24 @@ export default function ContactForm() {
       </div>
 
       {/* Call To Action */}
-      <div className="col-span-full lg:col-span-8 lg:col-start-3 text-center grid grid-cols-4 lg:grid-cols-8 gap-4 lg:gap-8 lg:gap-y-6 items-center justify-center bg-dietBlack text-white md:rounded-xl py-12 lg:py-10 px-6">
-        <p className="font-bold text-lg lg:text-xl col-span-full uppercase">
-          Want to start your journey?
-        </p>
-        <p className="text-xs lg:text-base text-opacity-70 col-span-full">
-          Join the countless individuals who have achieved their weight loss goals.
-        </p>
-        <a
-          href="/landing"
-          className="flex items-center justify-center bg-dietOrange hover:bg-opacity-60 h-10 rounded-lg py-2.5 text-center text-white col-span-2 lg:col-span-3 xl:col-span-2 duration-300 ease-in-out text-xs lg:text-sm xl:text-base font-medium col-start-2 lg:!col-start-3 2xl:!col-start-4 lg:!col-span-4 2xl:!col-span-2"
-        >
-          Request a call now
-        </a>
+      <div className="col-span-full flex justify-center">
+        <div className="w-full max-w-[843px] h-[220px] text-center bg-gradient-to-br from-dietBlack to-gray-900 text-white rounded-2xl px-8 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+          <div className="space-y-4">
+            <h5 className="font-bold text-lg lg:text-xl">
+              Want to start your journey?
+            </h5>
+            <p className="text-sm lg:text-base text-gray-300 leading-relaxed max-w-lg mx-auto">
+              Join the countless individuals who have achieved their weight loss
+              goals.
+            </p>
+            <a
+              href="/landing"
+              className="inline-flex items-center justify-center bg-dietOrange hover:bg-dietOrange/90 px-6 py-3 rounded-xl text-white font-semibold text-sm lg:text-base transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-dietOrange/25"
+            >
+              Request a call now
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

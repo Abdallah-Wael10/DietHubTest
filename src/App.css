@@ -1,8 +1,10 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 0;
   text-align: center;
+
+  font-family: MarkProBold, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .logo {
