@@ -210,7 +210,7 @@ function VideoCard({ video }) {
         {!isFullscreen && (
           <button
             onClick={handleFullscreen}
-            className="absolute top-4 right-4 z-10 w-12 h-12 lg:w-16 lg:h-16 bg-dietOrange hover:bg-dietOrange/90 rounded-full flex items-center justify-center transform hover:scale-110 transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl"
+            className="absolute top-5 right-7 z-10 w-11 h-11 bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/90 rounded-full flex items-center justify-center transform hover:scale-110 transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl"
           >
             <svg
               className="w-6 h-6 lg:w-8 lg:h-8 text-white ml-0.5"

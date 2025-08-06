@@ -122,7 +122,7 @@ export default function ContactForm() {
             </p>
             <a
               href="/landing"
-              className="inline-flex items-center justify-center bg-dietOrange hover:bg-dietOrange/90 px-6 py-3 rounded-xl text-white font-semibold text-sm lg:text-base transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-dietOrange/25"
+              className="inline-flex items-center justify-center bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 px-6 py-3 rounded-xl text-white font-semibold text-sm lg:text-base transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg shadow-dietOrange/25"
             >
               Request a call now
             </a>

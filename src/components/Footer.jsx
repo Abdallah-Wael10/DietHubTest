@@ -94,7 +94,7 @@ export default function Footer() {
               </div>
               <button
                 type="submit"
-                className="bg-[rgb(255_80_3)] hover:bg-opacity-90 text-white px-8 py-3 h-12 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg whitespace-nowrap text-sm lg:text-base max-[900px]:w-full max-[900px]:mt-2"
+                className="bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 text-white px-8 py-3 h-12 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg whitespace-nowrap text-sm lg:text-base max-[900px]:w-full max-[900px]:mt-2"
               >
                 Submit
               </button>

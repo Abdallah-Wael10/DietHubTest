@@ -20,7 +20,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="flex flex-col w-full h-full lg:min-h-screen text-white">
+    <section className="flex flex-col w-full h-max pb-5 text-white">
       {/* Hero Banner */}
       <div
         className="w-full aspect-[20/11] bg-cover bg-center bg-no-repeat relative"
