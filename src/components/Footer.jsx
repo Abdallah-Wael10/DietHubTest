@@ -5,7 +5,7 @@ export default function Footer() {
   const [phone, setPhone] = useState("");
 
   return (
-    <footer className="w-full h-max pb-10 pt-5 bg-white max-[900px]:pb-[290px] max-[900px]:pt-6 max-[900px]:px-3">
+    <footer className="w-full h-max pb-10 pt-5 bg-white max-[900px]:pb-[50px] max-[900px]:pt-6 max-[900px]:px-3">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start max-[900px]:gap-5">
           {/* Quick Links */}
@@ -83,10 +83,10 @@ export default function Footer() {
                     value={phone}
                     onChange={setPhone}
                     placeholder="Phone Number"
-                    inputClassName="!rounded-r-lg !border !border-l-0 !border-gray-300 !h-12 !w-full px-3 placeholder:text-[rgb(28_28_28_/_var(--tw-text-opacity))] placeholder:text-opacity-50 focus:!border-[rgb(255_80_3)] !text-sm"
+                    inputClassName="!rounded-r-lg !border !border-l-0 !border-gray-300 !h-12 !w-full px-3 placeholder:text-[rgb(28_28_28_/_var(--tw-text-opacity))] placeholder:text-opacity-50 focus:!border-[rgb(255_80_3)] !text-sm "
                     countrySelectorStyleProps={{
                       buttonClassName:
-                        "!h-12 !border !border-gray-300 !rounded-l-lg !rounded-r-none focus:!border-[rgb(255_80_3)]",
+                        "!h-12  !border !border-gray-300 !rounded-l-lg !p-2 !rounded-r-none focus:!border-[rgb(255_80_3)]",
                       dropdownArrowClassName: "hidden",
                     }}
                   />
@@ -104,7 +104,7 @@ export default function Footer() {
 
         <div className="w-full h-px bg-[rgb(255_80_3)] my-10 lg:my-12 max-[900px]:my-6"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-[900px]:gap-5 max-[900px]:text-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-[15px] lg:gap-12 items-center max-[900px]:gap-5 max-[900px]:text-center max-[900px]:p-0">
           <div className="lg:col-span-3 max-[900px]:mb-3">
             <a href="/" className="block w-fit max-[900px]:mx-auto">
               <img

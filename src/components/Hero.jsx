@@ -33,11 +33,11 @@ export default function Hero() {
       <div className="relative w-full bg-dietBlack py-8 lg:py-16 px-6 lg:px-20">
         <span className="absolute top-0 left-0 right-0 h-[2px] bg-dietOrange"></span>
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 lg:gap-8 max-w-6xl mx-auto max-[900px]:flex-wrap">
           {StatsData.map((stat, index) => (
             <div
               key={index}
-              className="group w-full md:w-[30%] lg:w-[32%] h-[184px] bg-white rounded-xl flex items-center gap-3 px-6 py-8 transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 hover:-translate-y-2 cursor-pointer"
+              className="group w-full md:w-[70%] lg:w-[32%] h-[184px] bg-white rounded-xl flex items-center gap-3 px-6 py-8 transition-all duration-300 ease-in-out hover:shadow-2xl hover:scale-105 hover:-translate-y-2 cursor-pointer"
             >
               {/* Icon Section */}
               <div className="flex-shrink-0 w-20 h-20 flex items-center justify-center bg-gray-50 rounded-full group-hover:bg-dietOrange/10 transition-colors duration-300">

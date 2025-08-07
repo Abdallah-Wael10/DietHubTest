@@ -4,7 +4,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full h-[100px] text-white shadow-sm flex items-center justify-between px-6 sm:px-10 lg:px-20">
+    <nav className={`w-full h-[100px] text-white shadow-sm flex items-center justify-between px-6 sm:px-10 lg:px-20 ${isMenuOpen ? 'bg-dietBlack' : 'bg-transparent'}`}>
       {/* Logo */}
       <div className="flex items-center">
         <a href="/">

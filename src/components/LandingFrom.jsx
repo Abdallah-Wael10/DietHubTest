@@ -27,20 +27,20 @@ export default function LandingForm() {
   };
 
   return (
-    <section className="bg-dietBlack text-white w-full min-h-screen">
+    <section className="bg-dietBlack text-white w-full min-h-screen max-[1025px]:min-h-0 max-[1025px]:pb-10">
       <Navbar />
-      <div className="w-full h-max min-h-screen flex justify-center items-center flex-wrap">
-        <div className="w-1/2 h-max pb-5 flex justify-center items-center max-[900px]:w-full">
-          <form className="w-[100%] h-max pb-5 pl-[120px] pb-5 pt-5 rounded-lg bg-transparent flex flex-col justify-center max-[900px]:pl-0">
-            <h1 className="w-full text-[36px] font-bold text-white text-center mb-3 leading-tight tracking-tight">
+      <div className="w-full h-max min-h-screen  max-[1025px]:min-h-0 max-[1025px]:pb-10 flex justify-center items-center flex-wrap">
+        <div className="w-1/2 h-max pb-5 flex justify-center items-center max-[900px]:w-full max-[1025px]:w-[80%]">
+          <form className="w-[100%] h-max pb-5 pl-32  pt-5 rounded-lg bg-transparent flex flex-col justify-center max-[1025px]:pl-2   ">
+            <h1 className="w-full text-[36px] font-bold text-white text-center mb-3 leading-tight tracking-tight max-[600px]:text-[25px]">
               TELL YOUR NEW STORY NOW!
             </h1>
-            <h2 className="w-full text-[20px] font-medium text-white/80 text-center mb-10 leading-relaxed">
+            <h2 className="w-full text-[20px] font-medium text-white/80 text-center mb-10 leading-relaxed max-[600px]:text-[13px]">
               Take a seat and start your transformation journey with us
             </h2>
 
             {/* Name & Email Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-5 max-[900px]:flex max-[900px]:justify-center max-[900px]:items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-5 max-[900px]:flex max-[900px]:justify-center max-[900px]:items-center max-[900px]:flex-wrap">
               <div className="w-[90%] relative group max-[900px]:w-[70%]">
                 <input
                   type="text"
@@ -104,14 +104,14 @@ export default function LandingForm() {
                   inputClassName="!rounded-r-lg !border !border-l-0 !border-gray-300 !h-[45px] !w-full px-3 placeholder:text-gray-400 focus:!border-[rgb(255_80_3)] focus:!ring-2 focus:!ring-[rgb(255_80_3)]/20 hover:!border-gray-400 !text-base !font-medium !bg-white !text-gray-800 !transition-all !duration-300"
                   countrySelectorStyleProps={{
                     buttonClassName:
-                      "!h-[45px] !border !border-gray-300 !rounded-l-lg !rounded-r-none focus:!border-[rgb(255_80_3)] hover:!border-gray-400 !bg-white !transition-all !duration-300",
+                      "!h-[45px] !border !border-gray-300 !rounded-l-lg !p-2 !rounded-r-none focus:!border-[rgb(255_80_3)] hover:!border-gray-400 !bg-white !transition-all !duration-300",
                     dropdownArrowClassName: "hidden",
                   }}
                 />
               </div>
 
               {/* Weight & Height */}
-              <div className="grid grid-cols-2 gap-2 max-[900px]:w-[70%]">
+              <div className="w-[90%] grid grid-cols-2 gap-2 max-[900px]:w-[70%]">
                 <div className=" relative group">
                   <input
                     type="text"
@@ -165,16 +165,16 @@ export default function LandingForm() {
             </div>
 
             {/* Buttons */}
-            <div className="w-full h-max pb-5 flex justify-center items-center gap-6 mt-6">
+            <div className="w-full h-max pb-5 flex justify-center items-center gap-6 mt-6 max-[900px]:flex-wrap">
               <button
                 type="submit"
-                className="w-[30%] h-[40px] bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 text-white font-bold rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] hover:shadow-[rgb(255_80_3)]/30 max-[900px]:w-[40%]"
+                className="w-[30%] h-[40px] bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 text-white font-bold rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] hover:shadow-[rgb(255_80_3)]/30 max-[900px]:w-[70%]"
               >
                 Submit
               </button>
               <a
                 href="/"
-                className="w-[30%] h-[40px] flex items-center justify-center gap-2 border-2 border-[rgb(255_80_3)] text-[rgb(255_80_3)] hover:bg-[rgb(255_80_3)] hover:text-white rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] group max-[900px]:w-[40%]"
+                className="w-[30%] h-[40px] flex items-center justify-center gap-2 border-2 border-[rgb(255_80_3)] text-[rgb(255_80_3)] hover:bg-[rgb(255_80_3)] hover:text-white rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] group max-[900px]:w-[70%]"
               >
                 <span className="group-hover:-translate-x-1 transition-transform duration-300">
                   Discover More
@@ -196,8 +196,13 @@ export default function LandingForm() {
           </form>
         </div>
 
-        <div className="w-1/2 h-max pb-5 flex justify-center items-center max-[900px]:w-full">
-          <div className="w-[610px] h-[500px] bg-white rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden border border-gray-100">
+        <div className="w-1/2 h-max pb-5 flex justify-center items-center max-[900px]:w-full max-[900px]:pb-0 max-[1025px]:w-[100%]">
+          <div
+            className="
+      w-[80%] h-[500px] bg-white rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden border border-gray-100
+      max-[900px]:w-[80%] max-[900px]:h-[320px] max-[600px]:h-[220px] max-[900px]:rounded-xl max-[900px]:shadow-lg max-[900px]:border
+    "
+          >
             <Swiper
               modules={[Autoplay, EffectFade]}
               spaceBetween={0}
@@ -209,14 +214,17 @@ export default function LandingForm() {
                 delay: 3000,
                 disableOnInteraction: false,
               }}
-              className="w-full h-full rounded-2xl"
+              className="w-full h-full rounded-2xl max-[900px]:rounded-xl"
             >
               {ImagesBeforeAndAfter.map((image, idx) => (
                 <SwiperSlide key={idx}>
                   <img
                     src={image}
                     alt={`Transformation ${idx + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    className="
+              w-full h-full object-cover transition-transform duration-500 hover:scale-105
+              max-[900px]:object-contain max-[900px]:rounded-xl
+            "
                     loading="eager"
                   />
                 </SwiperSlide>
@@ -224,19 +232,19 @@ export default function LandingForm() {
             </Swiper>
 
             {/* Floating Labels */}
-            <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-lg text-[rgb(255_80_3)] font-bold text-sm border border-[rgb(255_80_3)]/20">
+            <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-lg text-[rgb(255_80_3)] font-bold text-sm border border-[rgb(255_80_3)]/20 max-[900px]:top-2 max-[900px]:left-2 max-[900px]:px-3 max-[900px]:py-1 max-[900px]:text-xs">
               Before
             </div>
-            <div className="absolute top-6 right-6 bg-[rgb(255_80_3)]/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-lg text-white font-bold text-sm">
+            <div className="absolute top-6 right-6 bg-[rgb(255_80_3)]/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-lg text-white font-bold text-sm max-[900px]:top-2 max-[900px]:right-2 max-[900px]:px-3 max-[900px]:py-1 max-[900px]:text-xs">
               After
             </div>
 
             {/* Progress Indicator */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 max-[900px]:bottom-2 max-[900px]:space-x-2">
               {ImagesBeforeAndAfter.map((_, index) => (
                 <div
                   key={index}
-                  className="w-2 h-2 bg-white/70 rounded-full hover:bg-[rgb(255_80_3)] transition-colors duration-300 cursor-pointer"
+                  className="w-2 h-2 bg-white/70 rounded-full hover:bg-[rgb(255_80_3)] transition-colors duration-300 cursor-pointer max-[900px]:w-1.5 max-[900px]:h-1.5"
                 ></div>
               ))}
             </div>
