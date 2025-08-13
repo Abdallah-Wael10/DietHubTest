@@ -4,14 +4,18 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className={`w-full h-[100px] text-white shadow-sm flex items-center justify-between px-6 sm:px-10 lg:px-20 ${isMenuOpen ? 'bg-dietBlack' : 'bg-transparent'}`}>
+    <nav
+      className={`w-full h-[100px] text-white shadow-sm flex items-center justify-between px-6 sm:px-10 lg:px-20 ${
+        isMenuOpen ? "bg-dietBlack" : "bg-transparent"
+      }`}
+    >
       {/* Logo */}
       <div className="flex items-center">
         <a href="/">
           <img
             alt="Diet Hub logo"
             className="w-28 sm:w-32 lg:w-36"
-            src="/public/assets/Logo.svg"
+            src="/assets/Logo.svg" // ✅ هذا هو الصحيح
           />
         </a>
       </div>
@@ -68,13 +72,29 @@ export default function Navbar() {
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="max-[900px]:flex min-[901px]:hidden flex-col justify-center items-center w-8 h-8 space-y-1.5"
       >
-        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-        <span className={`w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        <span
+          className={`w-6 h-0.5 bg-white transition-all duration-300 ${
+            isMenuOpen ? "rotate-45 translate-y-2" : ""
+          }`}
+        ></span>
+        <span
+          className={`w-6 h-0.5 bg-white transition-all duration-300 ${
+            isMenuOpen ? "opacity-0" : ""
+          }`}
+        ></span>
+        <span
+          className={`w-6 h-0.5 bg-white transition-all duration-300 ${
+            isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+          }`}
+        ></span>
       </button>
 
       {/* Mobile Menu */}
-      <div className={`max-[900px]:${isMenuOpen ? 'flex' : 'hidden'} min-[901px]:hidden absolute top-[100px] left-0 w-full bg-dietBlack  flex-col items-center py-6 space-y-4 transition-all duration-300 z-50`}>
+      <div
+        className={`max-[900px]:${
+          isMenuOpen ? "flex" : "hidden"
+        } min-[901px]:hidden absolute top-[100px] left-0 w-full bg-dietBlack  flex-col items-center py-6 space-y-4 transition-all duration-300 z-50`}
+      >
         <ul className="flex flex-col text-white items-center gap-6">
           <li>
             <a
