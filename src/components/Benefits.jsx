@@ -130,14 +130,23 @@ function VideoCard({ video }) {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
 
-  const handleFullscreen = () => {
+  const handleFullscreen = async () => {
     if (containerRef.current) {
+      // طلب fullscreen
       if (containerRef.current.requestFullscreen) {
-        containerRef.current.requestFullscreen();
+        await containerRef.current.requestFullscreen();
       } else if (containerRef.current.webkitRequestFullscreen) {
-        containerRef.current.webkitRequestFullscreen();
+        await containerRef.current.webkitRequestFullscreen();
       } else if (containerRef.current.msRequestFullscreen) {
-        containerRef.current.msRequestFullscreen();
+        await containerRef.current.msRequestFullscreen();
+      }
+      // تشغيل الفيديو مباشرة بعد الدخول fullscreen
+      if (videoRef.current) {
+        try {
+          await videoRef.current.play();
+        } catch (e) {
+          // بعض الأجهزة تحتاج تفاعل إضافي من المستخدم
+        }
       }
     }
   };
@@ -162,16 +171,6 @@ function VideoCard({ video }) {
     };
   }, []);
 
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  };
-
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.controls = isFullscreen;
@@ -192,7 +191,6 @@ function VideoCard({ video }) {
           }`}
           poster={video.poster}
           preload="metadata"
-          onClick={isFullscreen ? handlePlayPause : undefined}
           style={{
             aspectRatio: "405/505",
             maxHeight: isFullscreen ? "100vh" : "100%",
