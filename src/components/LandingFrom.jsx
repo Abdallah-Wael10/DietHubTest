@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+// test
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,6 +8,9 @@ import Navbar from "./Navbar";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import First from "../../public/assets/first";
+import second from "../../public/assets/second";
+import third from "../../public/assets/third";
 
 export default function LandingForm() {
   const [phone, setPhone] = useState("");
@@ -16,11 +21,7 @@ export default function LandingForm() {
     height: "",
   });
 
-  const ImagesBeforeAndAfter = [
-    "/assets/firstone.webp",
-    "/assets/secone.webp",
-    "/assets/thirdone.webp",
-  ];
+  const ImagesBeforeAndAfter = [First, second, third];
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

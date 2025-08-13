@@ -15,7 +15,7 @@ export default function Navbar() {
           <img
             alt="Diet Hub logo"
             className="w-28 sm:w-32 lg:w-36"
-            src="/assets/Logo.svg" // ✅ هذا هو الصحيح
+            src="/assets/Logo.svg" 
           />
         </a>
       </div>
