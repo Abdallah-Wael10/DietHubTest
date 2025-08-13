@@ -45,7 +45,7 @@ export default function App() {
 
           {/* Life-Changing Tales route */}
           <Route 
-            path="/landing" 
+            path="/Landing" 
             element={
               <div className="relative min-h-screen flex flex-col items-center justify-center w-full h-full">
                 <LandingForm />
