@@ -8,9 +8,9 @@ import Navbar from "./Navbar";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import First from "../../public/assets/first";
-import second from "../../public/assets/second";
-import third from "../../public/assets/third";
+import First from "../../public/assets/first.jpg";
+import second from "../../public/assets/second.jpg";
+import third from "../../public/assets/third.jpg";
 
 export default function LandingForm() {
   const [phone, setPhone] = useState("");
