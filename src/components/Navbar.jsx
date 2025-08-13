@@ -61,7 +61,7 @@ export default function Navbar() {
 
         <a
           className="px-6 py-2.5 bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 text-white rounded-lg font-medium transition-all duration-300 ease-in-out hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"
-          href="/landing"
+          href="/Landing"
         >
           Life-Changing Tales
         </a>
@@ -136,7 +136,7 @@ export default function Navbar() {
 
         <a
           className="px-8 py-3 bg-[rgb(222,80,3)] hover:bg-[rgb(222,80,3)]/60 text-white rounded-lg font-medium transition-all duration-300 ease-in-out hover:shadow-lg transform hover:-translate-y-0.5 text-lg"
-          href="/landing"
+          href="/Landing"
           onClick={() => setIsMenuOpen(false)}
         >
           Life-Changing Tales
