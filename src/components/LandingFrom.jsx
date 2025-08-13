@@ -1,6 +1,4 @@
 import { useState } from "react";
-
-// test
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,9 +6,13 @@ import Navbar from "./Navbar";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import First from "../../public/assets/first.jpg";
-import second from "../../public/assets/second.jpg";
-import third from "../../public/assets/third.jpg";
+
+// استخدم المسار المباشر للصور من public
+const ImagesBeforeAndAfter = [
+  "/assets/first.jpg",
+  "/assets/second.jpg",
+  "/assets/third.jpg",
+];
 
 export default function LandingForm() {
   const [phone, setPhone] = useState("");
@@ -21,8 +23,6 @@ export default function LandingForm() {
     height: "",
   });
 
-  const ImagesBeforeAndAfter = [First, second, third];
-
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -30,9 +30,9 @@ export default function LandingForm() {
   return (
     <section className="bg-dietBlack text-white w-full min-h-screen max-[1025px]:min-h-0 max-[1025px]:pb-10">
       <Navbar />
-      <div className="w-full h-max min-h-screen  max-[1025px]:min-h-0 max-[1025px]:pb-10 flex justify-center items-center flex-wrap">
+      <div className="w-full h-max min-h-screen max-[1025px]:min-h-0 max-[1025px]:pb-10 flex justify-center items-center flex-wrap">
         <div className="w-1/2 h-max pb-5 flex justify-center items-center max-[900px]:w-full max-[1025px]:w-[80%]">
-          <form className="w-[100%] h-max pb-5 pl-32  pt-5 rounded-lg bg-transparent flex flex-col justify-center max-[1025px]:pl-2   ">
+          <form className="w-[100%] h-max pb-5 pl-32 pt-5 rounded-lg bg-transparent flex flex-col justify-center max-[1025px]:pl-2">
             <h1 className="w-full text-[36px] font-bold text-white text-center mb-3 leading-tight tracking-tight max-[600px]:text-[25px]">
               TELL YOUR NEW STORY NOW!
             </h1>
@@ -113,7 +113,7 @@ export default function LandingForm() {
 
               {/* Weight & Height */}
               <div className="w-[90%] grid grid-cols-2 gap-2 max-[900px]:w-[70%]">
-                <div className=" relative group">
+                <div className="relative group">
                   <input
                     type="text"
                     name="weight"
@@ -138,7 +138,7 @@ export default function LandingForm() {
                   </svg>
                 </div>
 
-                <div className=" relative group">
+                <div className="relative group">
                   <input
                     type="text"
                     name="height"
@@ -200,9 +200,9 @@ export default function LandingForm() {
         <div className="w-1/2 h-max pb-5 flex justify-center items-center max-[900px]:w-full max-[900px]:pb-0 max-[1025px]:w-[100%]">
           <div
             className="
-      w-[80%] h-[500px] bg-white rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden border border-gray-100
-      max-[900px]:w-[80%] max-[900px]:h-[320px] max-[600px]:h-[220px] max-[900px]:rounded-xl max-[900px]:shadow-lg max-[900px]:border
-    "
+              w-[80%] h-[500px] bg-white rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden border border-gray-100
+              max-[900px]:w-[80%] max-[900px]:h-[320px] max-[600px]:h-[220px] max-[900px]:rounded-xl max-[900px]:shadow-lg max-[900px]:border
+            "
           >
             <Swiper
               modules={[Autoplay, EffectFade]}
@@ -223,9 +223,9 @@ export default function LandingForm() {
                     src={image}
                     alt={`Transformation ${idx + 1}`}
                     className="
-              w-full h-full object-cover transition-transform duration-500 hover:scale-105
-              max-[900px]:object-contain max-[900px]:rounded-xl
-            "
+                      w-full h-full object-cover transition-transform duration-500 hover:scale-105
+                      max-[900px]:object-contain max-[900px]:rounded-xl
+                    "
                     loading="eager"
                   />
                 </SwiperSlide>
